@@ -1,3 +1,1 @@
-s = 'test'
-
-print(list(s))
+print(int(list('1234')))
