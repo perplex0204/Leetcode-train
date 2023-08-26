@@ -1,1 +1,1 @@
-print(int(list('1234')))
+print(set('qweqwe'))
