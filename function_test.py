@@ -1,1 +1,1 @@
-print(set('qweqwe'))
+print(True + True + True)
