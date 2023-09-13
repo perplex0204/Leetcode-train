@@ -4,6 +4,7 @@
 # [62] Unique Paths
 #
 
+# 動態規劃
 # @lc code=start
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:

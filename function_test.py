@@ -1,1 +1,1 @@
-print(True + True + True)
+print(int(eval(''.join(['6', '/', '-132']))))
