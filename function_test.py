@@ -1,1 +1,1 @@
-print(set('qweqwe'))
+print(int(eval(''.join(['6', '/', '-132']))))
