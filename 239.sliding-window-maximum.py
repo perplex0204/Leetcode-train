@@ -71,6 +71,7 @@ class Solution:
             result.append(max(queue))
         return result
 
+    # 對列裡面存index而不是存value
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
         if not nums or k == 0:
             return []
@@ -81,7 +82,6 @@ class Solution:
 
         # 進行遍歷
         for i, n in enumerate(nums):
-            print(queue)
             # 移除超出窗口範圍的索引（模仿 popleft 操作）
             while queue and queue[0] < i - k + 1:
                 queue.pop(0)
