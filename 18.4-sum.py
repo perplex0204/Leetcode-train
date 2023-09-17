@@ -3,17 +3,6 @@
 #
 # [18] 4Sum
 #
-<<<<<<< HEAD
-
-from typing import List
-
-# @lc code=start
-class Solution:
-    def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
-        
-# @lc code=end
-
-=======
 from typing import List
 # @lc code=start
 
@@ -84,4 +73,3 @@ class Solution:
 
         return [list(x) for x in ans]
 # @lc code=end
->>>>>>> refs/remotes/origin/main
