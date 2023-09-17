@@ -59,6 +59,7 @@ from typing import List
 
 
 class Solution:
+    # Time Limit Exceeded
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
         queue = []
         result = []
@@ -71,33 +72,52 @@ class Solution:
             result.append(max(queue))
         return result
 
-    # 對列裡面存index而不是存value
-    def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
-        if not nums or k == 0:
-            return []
+    # # deque
+    # def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
+    #     if not nums or k == 0:
+    #         return []
 
-        # 初始化隊列和結果列表
+    #     # 初始化隊列和結果列表
+    #     queue = []
+    #     result = []
+
+    #     # 進行遍歷
+    #     for i, n in enumerate(nums):
+    #         print(queue)
+    #         # 移除超出窗口範圍的索引（模仿 popleft 操作）
+    #         while queue and queue[0] < i - k + 1:
+    #             queue.pop(0)
+
+    #         # 從隊列尾部開始，刪除所有小於當前元素的數字，以保持隊列的有序性（最大的數在前面）
+    #         while queue and nums[queue[-1]] < n:
+    #             queue.pop()
+
+    #         queue.append(i)
+
+    #         # 窗口形成後，開始添加結果
+    #         if i >= k - 1:
+    #             result.append(nums[queue[0]])
+    #     return result
+
+    # deque自寫
+    def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
         queue = []
         result = []
-
-        # 進行遍歷
-        for i, n in enumerate(nums):
-            # 移除超出窗口範圍的索引（模仿 popleft 操作）
-            while queue and queue[0] < i - k + 1:
+        for index, number in enumerate(nums):
+            print('queue: ', queue)
+            # print('result: ', result)
+            while queue and nums[queue[-1]] < number:
+                queue.pop()
+            while queue and queue[0] < index - k + 1:
                 queue.pop(0)
 
-            # 從隊列尾部開始，刪除所有小於當前元素的數字，以保持隊列的有序性（最大的數在前面）
-            while queue and nums[queue[-1]] < n:
-                queue.pop()
-
-            queue.append(i)
-
-            # 窗口形成後，開始添加結果
-            if i >= k - 1:
+            queue.append(index)
+            if index+1 >= k:
                 result.append(nums[queue[0]])
+        # print('result: ', result)
         return result
 # @lc code=end
 
 
 s = Solution
-print(s.maxSlidingWindow(self=s, nums=[1, 3, -1, -3, 5, 3, 6, 7], k=3))
+print(s.maxSlidingWindow(self=s, nums=[1, 3, -1, -3, -5, -7, 5, 3, 6, 7], k=4))
